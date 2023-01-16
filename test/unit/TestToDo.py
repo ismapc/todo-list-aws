@@ -47,7 +47,6 @@ class TestDatabaseFunctions(unittest.TestCase):
     def test_database_error(self):
         print ('---------------------')
         print ('Start: test_database_error')
-        self.dynamodb = null
         from src.todoList import create_todo_table
         self.assertRaises(Exception, create_todo_table())
         print ('End: test_database_error')
