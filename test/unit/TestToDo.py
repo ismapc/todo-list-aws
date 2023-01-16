@@ -48,7 +48,8 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('---------------------')
         print ('Start: test_database_error')
         from src.todoList import create_todo_table
-        self.assertRaises(Exception, create_todo_table( None ))
+        self.dynamodb = boto3.resource('dummyDB')
+        self.assertRaises(Exception, create_todo_table( self.dynamodb ))
         print ('End: test_database_error')
 
     def test_table_exists(self):
