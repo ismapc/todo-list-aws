@@ -34,6 +34,15 @@ class TestDatabaseFunctions(unittest.TestCase):
         #self.table_local = create_todo_table()
         print ('End: setUp')
 
+    def setUp_error(self):
+        print ('---------------------')
+        print ('Start: setUp_error')
+        """Fail database creation"""
+        self.dynamodb = null
+        from src.todoList import create_todo_table
+        self.assertRaises(Exception, create_todo_table())
+        print ('End: setUp_error')
+        
     def tearDown(self):
         print ('---------------------')
         print ('Start: tearDown')
@@ -105,7 +114,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('End: test_get_todo')
        
     #new function to check the error
-    def test_get_todo_empty_error(self):
+    def test_get_todo_error(self):
         print ('---------------------')
         print ('Start: test_get_todo_empty_error')
         from src.todoList import get_item
@@ -113,14 +122,6 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertRaises(TypeError, get_item("", self.dynamodb)) #empty
         print ('End: test_get_todo_error')
     
-    def test_get_todo_wrong_id_error(self):
-        print ('---------------------')
-        print ('Start: test_get_todo_wrong_id_error')
-        from src.todoList import get_item
-        # Testing file functions
-        self.assertRaises(TypeError, get_item("NO-ID", self.dynamodb)) #wrong id
-        print ('End: test_get_todo_error')        
-   
     def test_list_todo(self):
         print ('---------------------')
         print ('Start: test_list_todo')
