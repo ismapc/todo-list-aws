@@ -44,13 +44,6 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.dynamodb = None
         print ('End: tearDown')
 
-    def test_database_error(self):
-        print ('---------------------')
-        print ('Start: test_database_error')
-        from src.todoList import create_todo_table
-        self.assertRaises(Exception, create_todo_table( 'dummy' ))
-        print ('End: test_database_error')
-
     def test_table_exists(self):
         print ('---------------------')
         print ('Start: test_table_exists')
@@ -63,6 +56,14 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertIn(tableName, self.table.name)
         #self.assertIn('todoTable', self.table_local.name)
         print ('End: test_table_exists')
+
+    def test_get_table_error(self):
+        print ('---------------------')
+        print ('Start: test_get_table_error')
+        from src.todoList import get_table
+        # Table mock
+        self.assertRaises(Exception, get_table())
+        print ('End: test_get_table_error')
         
 
     def test_put_todo(self):
