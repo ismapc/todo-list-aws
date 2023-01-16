@@ -34,15 +34,6 @@ class TestDatabaseFunctions(unittest.TestCase):
         #self.table_local = create_todo_table()
         print ('End: setUp')
 
-    def setUp_error(self):
-        print ('---------------------')
-        print ('Start: setUp_error')
-        """Fail database creation"""
-        self.dynamodb = null
-        from src.todoList import create_todo_table
-        self.assertRaises(Exception, create_todo_table())
-        print ('End: setUp_error')
-        
     def tearDown(self):
         print ('---------------------')
         print ('Start: tearDown')
@@ -52,6 +43,14 @@ class TestDatabaseFunctions(unittest.TestCase):
         #self.table_local.delete()
         self.dynamodb = None
         print ('End: tearDown')
+
+    def test_database_error(self):
+        print ('---------------------')
+        print ('Start: test_database_error')
+        self.dynamodb = null
+        from src.todoList import create_todo_table
+        self.assertRaises(Exception, create_todo_table())
+        print ('End: test_database_error')
 
     def test_table_exists(self):
         print ('---------------------')
