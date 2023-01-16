@@ -110,7 +110,8 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('Start: test_get_todo_error')
         from src.todoList import get_item
         # Testing file functions
-        self.assertRaises(TypeError, get_item("", self.dynamodb))
+        self.assertRaises(TypeError, get_item("", self.dynamodb)) #empty
+        self.assertRaises(TypeError, get_item("NO-ID", self.dynamodb)) #wrong id
         print ('End: test_get_todo_error')
 
    
