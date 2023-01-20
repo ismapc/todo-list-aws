@@ -79,7 +79,7 @@ Resources:
           Properties:
             Path: /todos/{id}/{language}
             Method: get
- UpdateTodoFunction:
+  UpdateTodoFunction:
     Type: AWS::Serverless::Function 
     Properties:
       CodeUri: src/
