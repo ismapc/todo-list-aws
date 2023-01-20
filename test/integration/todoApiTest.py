@@ -155,7 +155,7 @@ class TestApi(unittest.TestCase):
         print('End - integration test Translate TODO')
 
 
-def test_api_updatetodo(self):
+    def test_api_updatetodo(self):
         print('---------------------------------------')
         print('Starting - integration test Update TODO')
         #Add TODO
@@ -210,7 +210,7 @@ def test_api_updatetodo(self):
         print('End - integration test Update TODO')
 
 
-def test_api_deletetodo(self):
+    def test_api_deletetodo(self):
         print('---------------------------------------')
         print('Starting - integration test Delete TODO')
         #Add TODO
