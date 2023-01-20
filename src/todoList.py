@@ -55,7 +55,7 @@ def translate_item(key, target_language, dynamodb=None):
             translate_response = translate_client.translate_text(
                 Text=item['text'],
                 # The service detects the language
-                SourceLanguageCode="auto", 
+                SourceLanguageCode="auto",
                 TargetLanguageCode=target_language)
             item['text'] = translate_response['TranslatedText']
         except ClientError as e:
