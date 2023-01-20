@@ -132,7 +132,7 @@ class TestApi(unittest.TestCase):
             response.status_code, 200, "Error en la petición API a {url}"
         )
         self.assertEqual(
-            jsonbody['text'], "Integration text example - TRANSLATE", "Error en la petición API a {url}"
+            jsonbody['text'], "Integration text example - Translate", "Error en la petición API a {url}"
         )
         #Test TRANSLATE TODO
         NEW_LANGUAGE_TODO='sw' #Suajili
