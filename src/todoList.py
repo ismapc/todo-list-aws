@@ -45,6 +45,27 @@ def get_items(dynamodb=None):
     return result['Items']
 
 
+def translate_item(key, target_language, dynamodb=None):
+    translate_client = boto3.client(service_name='translate',
+                                    region_name='us-east-1',
+                                    use_ssl=True)
+    item = get_item(key, dynamodb)
+    if item:
+        try:
+            translate_response = translate_client.translate_text(
+                Text=item['text'],
+                # The service detects the language
+                SourceLanguageCode="auto",
+                TargetLanguageCode=target_language)
+            item['text'] = translate_response['TranslatedText']
+        except ClientError as e:
+            print(e.response['Error']['Message'])
+        else:
+            return item
+    else:
+        return
+
+
 def put_item(text, dynamodb=None):
     table = get_table(dynamodb)
     timestamp = str(time.time())
