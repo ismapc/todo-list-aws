@@ -63,7 +63,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('Start: test_get_table_error')
         from src.todoList import get_table
         # Table mock
-        os.environ['ENDPOINT_OVERRIDE'] = "/"
+        os.environ['ENDPOINT_OVERRIDE'] = "dynamodb.us-east-1.amazonaws.com"
         self.assertRaises(Exception, get_table())
         print ('End: test_get_table_error')        
 
