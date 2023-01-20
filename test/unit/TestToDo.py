@@ -65,7 +65,9 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('Start: test_get_table_error')
         from src.todoList import get_table
         # Table mock
-        self.assertRaises(Exception, get_table())
+        os.environ['ENDPOINT_OVERRIDE'] = "/WRONG_URL"
+        with self.assertRaises(Exception, get_table()):
+          del os.environ['ENDPOINT_OVERRIDE']
         print ('End: test_get_table_error')
         
 
