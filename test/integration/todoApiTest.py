@@ -207,7 +207,9 @@ def test_api_updatetodo(self):
             response.status_code, 200, "Error en la petición API a {url}"
         )
         print('End - integration test Update TODO')
-    def test_api_deletetodo(self):
+
+
+def test_api_deletetodo(self):
         print('---------------------------------------')
         print('Starting - integration test Delete TODO')
         #Add TODO
