@@ -57,6 +57,16 @@ class TestDatabaseFunctions(unittest.TestCase):
         #self.assertIn('todoTable', self.table_local.name)
         print ('End: test_table_exists')
         
+    #new function to check the error
+    def test_get_table_error(self):
+        print ('---------------------')
+        print ('Start: test_get_table_error')
+        from src.todoList import get_table
+        # Table mock
+        os.environ['ENDPOINT_OVERRIDE'] = "/WRONG-URI/"
+        self.assertRaises(Exception, get_table())
+        del os.environ['ENDPOINT_OVERRIDE']
+        print ('End: test_get_table_error')        
 
     def test_put_todo(self):
         print ('---------------------')
@@ -79,7 +89,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         from src.todoList import put_item
         # Table mock
         self.assertRaises(Exception, put_item("", self.dynamodb))
-        self.assertRaises(Exception, put_item(""))
+        self.assertRaises(Exception, put_item("", self.dynamodb))
         print ('End: test_put_todo_error')
 
     def test_get_todo(self):
