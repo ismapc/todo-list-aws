@@ -103,6 +103,16 @@ class TestDatabaseFunctions(unittest.TestCase):
             self.text,
             responseGet['text'])
         print ('End: test_get_todo')
+
+
+    #new function to check the error
+    def test_get_todo_error(self):
+        print ('---------------------')
+        print ('Start: test_get_todo_empty_error')
+        from src.todoList import get_item
+        # Testing file functions
+        self.assertRaises(TypeError, get_item("", self.dynamodb)) #empty
+        print ('End: test_get_todo_error')        
     
     def test_list_todo(self):
         print ('---------------------')
