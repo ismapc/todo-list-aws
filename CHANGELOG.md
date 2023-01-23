@@ -8,3 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Versión inicial de código.
 
+## [1.1.0] - 2023-01-20
+### Added
+- Añadir servicio de traducción de los TODOs .
+
