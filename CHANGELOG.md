@@ -7,4 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2021-01-08
 ### Added
 - Versión inicial de código.
+### Testing - 2023-01-20
+- Ampliar las pruebas unitarias.
+
+
+## [1.1.0] - 2023-01-20
+### Added
+- Añadir servicio de traducción de los TODOs .
+
 
